@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Лабораторная работа 3 - ИТМО 5 Web-программирование</title>
+    <link href="../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "\u041b\u0430\u0431\u043e\u0440\u0430\u0442\u043e\u0440\u043d\u0430\u044f \u0440\u0430\u0431\u043e\u0442\u0430 3.", url: "#_top", children: [
+              {title: "\u0412\u044b\u043f\u043e\u043b\u043d\u0438\u043b: \u041f\u0440\u043e\u0441\u043a\u0443\u0440\u044f\u043a\u043e\u0432 \u0420\u043e\u043c\u0430\u043d \u0412\u043b\u0430\u0434\u0438\u043c\u0438\u0440\u043e\u0432\u0438\u0447 K3339.", url: "#k3339" },
+              {title: "\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435 \u0432\u0430\u0440\u0438\u0430\u043d\u0442\u0430 \u0438 \u0411\u0414", url: "#_1" },
+              {title: "\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435 \u0440\u0430\u0431\u043e\u0442\u044b \u0432\u0441\u0435\u0445 \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u0443\u0435\u043c\u044b\u0445 endpoint (Fuel Management API)", url: "#endpoint-fuel-management-api" },
+              {title: "\u0421\u0435\u0440\u0438\u0430\u043b\u0438\u0437\u0430\u0442\u043e\u0440\u044b", url: "#_6" },
+              {title: "\u0412\u044b\u0432\u043e\u0434", url: "#_7" },
+          ]},
+        ];
+
+    </script>
+    <script src="../js/base.js"></script>
+      <script src="../search/main.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../lab4/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../lab4/" class="btn btn-xs btn-link">
+        Лабораторная работа 4
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../lab2/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../lab2/" class="btn btn-xs btn-link">
+        Лабораторная работа 2
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="3">Лабораторная работа 3.</h1>
+<h3 id="k3339">Выполнил: <span style="color:#36ea1a">Проскуряков Роман Владимирович K3339</span>.</h3>
+<h2 id="_1">Описание варианта и БД</h2>
+<p>Вариант 20. БД «Автозаправки»</p>
+<p>Описание предметной области: Фирмы–поставщики автомобильного топлива имеют сеть заправочных станций (АЗС и АЗГС).</p>
+<p>На автозаправках реализуется жидкое автомобильное топливо различных видов или газ (АЗС или АЗГС). Топливо продается за безналичный расчет с помощью специальных пластиковых карт. База данных предназначена для анализа продаж автомобильного топлива клиентам по видам топлива в сети заправок конкретной фирмы-производителя (поставщика топлива), спроса на автомобильное топливо и т.д. Каждая фирма имеет несколько автозаправок. Каждый вид топлива предоставляется несколькими фирмами-производителями.</p>
+<p>Для оплаты используется карта-счет клиента (карты имеют заданный период действия и могут иметь скидку).</p>
+<p>Цены на топливо могут меняться.</p>
+<p>БД должна содержать следующий минимальный набор сведений: Карта-счет клиента. Сумма на счете клиента. Ф.И.О. клиента. Адрес клиента. Телефон клиента. Код автозаправки. Адрес автозаправки. Название фирмы. Юридический адрес. Телефон. Код топлива. Вид топлива. Единица измерения. Цена (руб.) за литр. Дата продажи топлива. Количество топлива. Код фирмы-поставщика. Фирма-поставщик топлива. Юридический адрес. Сроки действия цены на топливо.</p>
+<p>Дополните состав атрибутов на основе анализа предметной области.</p>
+<p><code>ERD диаграмма</code></p>
+<p><a href=""><img src="report_photo/ERD.png" /></a></p>
+<p><code>IDEF1X диаграмма</code></p>
+<p><a href=""><img src="report_photo/IDEF1X_update.png" /></a></p>
+<h2 id="endpoint-fuel-management-api">Описание работы всех используемых endpoint (Fuel Management API)</h2>
+<h3 id="api-endpoints-modelviewsets">Основные API Endpoints (ModelViewSets)</h3>
+<p>Все <code>ModelViewSet</code> используют стандартные CRUD операции: <code>list</code>, <code>retrieve</code>, <code>create</code>, <code>update</code>, <code>partial_update</code>, <code>destroy</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Endpoint</th>
+<th>Model</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/fuel-reference/</code></td>
+<td><code>FuelReference</code></td>
+<td>Справочник видов топлива.</td>
+</tr>
+<tr>
+<td><code>/companies/</code></td>
+<td><code>Companies</code></td>
+<td>Справочник компаний.</td>
+</tr>
+<tr>
+<td><code>/produced-fuel/</code></td>
+<td><code>ProducedFuel</code></td>
+<td>Произведённое топливо с привязкой к компании и виду топлива.</td>
+</tr>
+<tr>
+<td><code>/gas-stations/</code></td>
+<td><code>GasStation</code></td>
+<td>Станции с привязкой к компании.</td>
+</tr>
+<tr>
+<td><code>/sold-fuel/</code></td>
+<td><code>SoldFuel</code></td>
+<td>Проданное топливо на конкретной станции.</td>
+</tr>
+<tr>
+<td><code>/fuel-prices/</code></td>
+<td><code>FuelPrices</code></td>
+<td>Цены на проданное топливо (с началом и окончанием действия).</td>
+</tr>
+<tr>
+<td><code>/clients/</code></td>
+<td><code>Clients</code></td>
+<td>Клиенты системы.</td>
+</tr>
+<tr>
+<td><code>/client-cards/</code></td>
+<td><code>ClientCards</code></td>
+<td>Карты клиентов с балансом, скидкой и датами активности.</td>
+</tr>
+<tr>
+<td><code>/sales/</code></td>
+<td><code>Sales</code></td>
+<td>Продажи топлива с привязкой к цене и карте клиента.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="api-endpoints">Дополнительные API Endpoints</h3>
+<h3 id="_2">Получение актуальных цен на заправочной станции</h3>
+<p><strong>GET</strong> <code>/my-station-prices/</code></p>
+<p>Возвращает все цены на топливо для станции, к которой привязан User (кассир).</p>
+<p><strong>Response:</strong></p>
+<pre><code class="language-json">[
+  {
+    &quot;id_fuel_price&quot;: 1,
+    &quot;sold_fuel&quot;: 3,
+    &quot;start_time&quot;: &quot;2025-12-29T10:00:00Z&quot;,
+    &quot;end_time&quot;: null,
+    &quot;per_liter&quot;: 50.0
+  },
+  ...
+]
+</code></pre>
+<hr />
+<h3 id="_3">Расчёт суммы к оплете (с предварительно известной суммой)</h3>
+<p><strong>POST</strong> <code>/calculate-payment/</code></p>
+<p><strong>Request:</strong></p>
+<pre><code class="language-json">{
+  &quot;id_card&quot;: 1,
+  &quot;initial_amount&quot;: 1000.0
+}
+</code></pre>
+<p><strong>Response:</strong></p>
+<pre><code class="language-json">{
+  &quot;final_amount&quot;: 900.0,
+  &quot;sufficient_balance&quot;: true
+}
+</code></pre>
+<ul>
+<li><code>final_amount</code> — сумма после применения скидок.</li>
+<li><code>sufficient_balance</code> — достаточно ли средств на карте.</li>
+</ul>
+<hr />
+<h3 id="_4">Расчёт суммы к оплете (по виду топлива)</h3>
+<p><strong>POST</strong> <code>/calculate-payment/</code></p>
+<p><strong>Request:</strong></p>
+<pre><code class="language-json">{
+  &quot;id_fuel_price&quot;: 1,
+  &quot;liters&quot;: 50,
+  &quot;id_card&quot;: 1
+}
+</code></pre>
+<p><strong>Response:</strong></p>
+<pre><code class="language-json">{
+  &quot;final_amount&quot;: 2250.0,
+  &quot;sufficient_balance&quot;: true
+}
+</code></pre>
+<ul>
+<li>Рассчитывает оплату на основе цены за литр и объёма топлива.</li>
+<li>Проверяет активность карты и баланс.</li>
+</ul>
+<hr />
+<h3 id="_5">Выполнение оплаты топлива</h3>
+<p><strong>POST</strong> <code>/execute-fuel-payment/</code></p>
+<p><strong>Request:</strong></p>
+<pre><code class="language-json">{
+  &quot;id_fuel_price&quot;: 1,
+  &quot;liters&quot;: 50,
+  &quot;id_card&quot;: 1
+}
+</code></pre>
+<p><strong>Response Success:</strong></p>
+<pre><code class="language-json">{
+  &quot;success&quot;: true
+}
+</code></pre>
+<p><strong>Response Failure:</strong></p>
+<pre><code class="language-json">{
+  &quot;success&quot;: false,
+  &quot;detail&quot;: &quot;Insufficient balance&quot;
+}
+</code></pre>
+<ul>
+<li>Создаёт запись в <code>Sales</code>.</li>
+<li>Списывает сумму с баланса карты клиента.</li>
+<li>Все операции выполняются в транзакции для сохранения целостности данных.</li>
+</ul>
+<hr />
+<h2 id="_6">Сериализаторы</h2>
+<ul>
+<li><strong>FuelReferenceSerializer</strong> — виды топлива.</li>
+<li><strong>CompaniesSerializer</strong> — компании.</li>
+<li><strong>ProducedFuelSerializer</strong> — произведённое топливо с детализацией.</li>
+<li><strong>GasStationSerializer</strong> — станции и их компании.</li>
+<li><strong>SoldFuelSerializer</strong> — проданное топливо с детализацией.</li>
+<li><strong>FuelPricesSerializer</strong> — цены топлива.</li>
+<li><strong>ClientsSerializer</strong> — данные клиентов.</li>
+<li><strong>ClientCardsSerializer</strong> — карты клиентов с балансом и скидками.</li>
+<li><strong>SalesSerializer</strong> — продажи топлива.</li>
+<li><strong>CustomUserCreateSerializer / CustomUserSerializer</strong> — пользователь с привязкой к станции.</li>
+<li><strong>PaymentCalculationSerializer / FuelPurchaseCalculationSerializer</strong> — расчёт сумм и проверка баланса.</li>
+</ul>
+<h2 id="_7">Вывод</h2>
+<p>Наслаждаемся быстротой создания стандартных с сериализаторов и Api к ним. Возможно добавить, что то в Api при реализации frontend-а.</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../lab4/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../lab4/" class="btn btn-xs btn-link">
+        Лабораторная работа 4
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../lab2/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../lab2/" class="btn btn-xs btn-link">
+        Лабораторная работа 2
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="None">Windmill Dark</a> theme by None (noraj).</p>
+</footer>
+
+</body>
+</html>
